@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'org.jsonschema2dataclass' version '3.0.0'
+}
+repositories {
+    mavenCentral()
+}
+
+ext {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation 'javax.validation:validation-api:2.0.1.Final'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.4'
+    implementation 'com.google.code.gson:gson:2.8.8'
+
+  // see src/main/resources/json/external_dependencies.json
+    implementation 'joda-time:joda-time:2.10.10'
+}
+
+jsonSchema2Pojo {
+  annotationStyle = 'gson'
+  targetPackage = 'edu.kit.turntable.mapping'
+  targetDirectoryPrefix = file("${buildDir}/generated/sources/annotationProcessor/java/main")
+  propertyWordDelimiters = '_'
+}
