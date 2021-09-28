@@ -23,6 +23,6 @@ dependencies {
 jsonSchema2Pojo {
   annotationStyle = 'gson'
   targetPackage = 'edu.kit.turntable.mapping'
-  targetDirectoryPrefix = file("${buildDir}/generated/sources/annotationProcessor/java/main")
+  targetDirectoryPrefix = file("${buildDir}/generated/sources/annotationProcessor/java")
   propertyWordDelimiters = '_'
 }
